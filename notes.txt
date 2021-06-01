@@ -1,0 +1,8 @@
+Setting up environment
+
+install Visual Studio Code
+install Node.js
+
+
+npm install @angular/cli
+npm install --save-dev @angular-devkit/build-angular
