@@ -1,3 +1,31 @@
-<app-users>
-    
-</app-users>
+<div class="row">
+    <div class="col-md-6">
+        <h2>
+            <i class="fa fa-users"> </i> Users
+        </h2>
+    </div>
+    <div class="col-md-6">
+        <h5 class="text-right text-secondary">Total Users</h5>
+    </div>
+</div>
+<table *ngIf="users?.length > 0; else noUsers" class="table table-striped">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.FirstName}} {{user.LastName}}</td>
+            <td>{{user.Email}}</td>
+            <td>{{user.Phone}}</td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #noUsers>
+    <hr>
+    <h5>There are no users in the system.</h5>
+</ng-template>

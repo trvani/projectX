@@ -32,14 +32,6 @@ export class UserService {
         return data;
       });
     }));
-
-    //this.users = this.usersCollection.snapshotChanges().map((changes: any[]) => {
-    //  return changes.map(action =>{
-    //    const data = action.payload.doc.data() as User;
-    //    data.id = action.payload.doc.ID;
-    //    return data;
-    //  });
-    //});
     return this.users;
   }
 }
