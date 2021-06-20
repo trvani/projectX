@@ -1,1 +1,44 @@
-<p>add-user works!</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left">
+
+      </i>
+      Back To Dashboard
+    </a>
+  </div>
+  <div class="col-md-6">
+    
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add User
+  </div>
+  <div class="card-body">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+      <div class="form-group">
+        <label for="FirstName">First Name</label>
+        <input 
+          type="text"
+          class="form-control"
+          name="FirstName"
+          #userFirstName="ngModel"
+          [ngClass]="{'is-invalid': userFirstName.errors && userFirstName.touched}"
+          [(ngModel)]="user.FirstName"        
+          minlength="2"
+          required
+          >
+
+          <div [hidden]="!userFirstName.errors?.required" class="invalid-feedback">
+            First Name Required
+          </div>
+          <div [hidden]="!userFirstName.errors?.minlength" class="invalid-feedback">
+            Must be at least 2 characters
+          </div>
+      </div>
+
+    </form>
+  </div>
+</div>
