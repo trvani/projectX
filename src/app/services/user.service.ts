@@ -34,4 +34,8 @@ export class UserService {
     }));
     return this.users;
   }
+
+  newUser(usr:User){
+    this.usersCollection.add(usr);
+  }
 }

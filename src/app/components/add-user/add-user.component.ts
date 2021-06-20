@@ -1,6 +1,9 @@
-import { viewClassName } from '@angular/compiler';
+import { ThisReceiver, viewClassName } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../models/users';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import{UserService} from '../../services/user.service';
+import{Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -17,7 +20,11 @@ export class AddUserComponent implements OnInit {
   }
 
   @ViewChild('userForm') form:any;
-  constructor() { }
+  constructor(private flashMessage: FlashMessagesService,
+    private userService: UserService,
+    private router:Router
+    
+    ) { }
 
   ngOnInit(): void {
 
@@ -25,7 +32,12 @@ export class AddUserComponent implements OnInit {
 
   onSubmit({value}:{value:User})
   {
-    console.log(value);
+     //Add New User
+      this.userService.newUser(value)
+      // Show Message
+      this.flashMessage.show('New user added',{cssClass:'alert-success',timeout:2000});
+      // Redirect to dashboard  
+      this.router.navigate(['/']);
   }
 
 }
