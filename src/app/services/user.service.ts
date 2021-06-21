@@ -38,4 +38,21 @@ export class UserService {
   newUser(usr:User){
     this.usersCollection.add(usr);
   }
+
+  getUser(id: string): Observable<User>
+  {
+    this.usersDoc = this.afs.doc<User>('users/${id}');
+    this.user = this.usersDoc.snapshotChanges().pipe(
+      map(action => {
+        if(action.payload.exists === false){
+          return null
+        }else{
+          const data  = action.payload.data() as User;
+          data.id = action.payload.id;
+          return data;
+        }
+      })
+    )
+    return this.user
+  }
 }
