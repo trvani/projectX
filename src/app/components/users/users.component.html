@@ -4,7 +4,7 @@
             <i class="fa fa-users"> </i> Users
         </h2>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" *ngIf="users!== undefined">
         <h5 class="text-right text-secondary">Total Users: {{users.length}}</h5>
     </div>
 </div>
@@ -17,7 +17,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="users!== undefined">
         <tr *ngFor="let user of users">
             <td>{{user.FirstName}} {{user.LastName}}</td>
             <td>{{user.Email}}</td>
