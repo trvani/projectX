@@ -26,13 +26,13 @@ export class UserDetailComponent implements OnInit {
 
   ngOnInit(): void {
     //get id from url
-    console.log("sdgsgsgs");
-    this.id = this.route.snapshot.params["id"];
-    console.log(this.id);
+    this.id = this.route.snapshot.params['id'];
+    console.log("thgfjkhg");
 
     //get client
-    this.userService.getUser(this.id).subscribe(user => {
-      this.user = user;
+    this.userService.getUser(this.id).subscribe(usr => {
+      this.user = usr;
+      console.log(this.user);
     });
   }
 
