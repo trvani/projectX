@@ -41,8 +41,7 @@ export class UserService {
 
   getUser(id: string): Observable<User>
   {
-    console.log(id);
-    this.usersDoc = this.afs.doc<User>(`user/${id}`);
+    this.usersDoc = this.afs.doc<User>(`Tb_User/${id}`);
     this.user = this.usersDoc.snapshotChanges().pipe(
       map(action => {
         if(action.payload.exists === false) {

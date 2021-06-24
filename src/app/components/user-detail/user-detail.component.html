@@ -14,7 +14,24 @@
 </div>
 <hr>
 <div *ngIf="user" class="card">
-    <div class="card-header">
+    <h3 class="card-header">
+        {{user.FirstName}} {{user.LastName}}
+    </h3>
+    <div class="card-body">
+        <div class="row">
+            <div class="cold-md-8 col-sm-6">
+                <h4>User ID: {{user.id}}</h4>
+            </div>
+        </div>
 
+        <hr>
+        <ul class="list-group">
+            <li class="list-group-item">
+                Contact Email:{{user.Email}}
+            </li>
+            <li class="list-group-item">
+                Contact Phone:{{user.Phone}}
+            </li>
+        </ul>
     </div>
 </div>

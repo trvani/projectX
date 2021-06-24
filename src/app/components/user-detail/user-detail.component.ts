@@ -5,6 +5,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 import { UserService } from '../../services/user.service';
 
 import { User } from '../../models/users';
+import { taggedTemplate } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-user-detail',
@@ -30,6 +31,7 @@ export class UserDetailComponent implements OnInit {
     //get client
     this.userService.getUser(this.id).subscribe(usr => {
       this.user = usr;
+      console.log(this.user);
     });
   }
 
