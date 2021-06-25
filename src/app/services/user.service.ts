@@ -53,7 +53,15 @@ export class UserService {
         }
     }));
     return this.user;
+  }
 
-  
+  updateUser(user:User){
+    this.usersDoc = this.afs.doc(`Tb_User/${user.id}`);
+    this.usersDoc.update(user);
+  }
+
+  deleteUser(user:User){
+    this.usersDoc = this.afs.doc(`Tb_User/${user.id}`);
+    this.usersDoc.delete();
   }
 }

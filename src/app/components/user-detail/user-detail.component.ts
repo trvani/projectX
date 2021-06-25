@@ -21,7 +21,8 @@ export class UserDetailComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private flashMessage: FlashMessagesService
-  ) {
+  ) 
+  {
 
    }
 
@@ -33,6 +34,17 @@ export class UserDetailComponent implements OnInit {
       this.user = usr;
       console.log(this.user);
     });
+  }
+
+  onDeleteClick(): void{
+    if(confirm('Are you sure?'))
+    {
+      this.userService.deleteUser(this.user);
+      this.flashMessage.show('User Removed!',{
+        cssClass:'alert-success',timeout:4000
+      });
+      this.router.navigate(['/']);
+    }
   }
 
 }
