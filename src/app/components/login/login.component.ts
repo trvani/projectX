@@ -21,6 +21,11 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.authService.getAuth().subscribe(auth=>{
+      if(auth){
+        this.router.navigate(['/']);
+      } 
+    })
   }
   onSubmit(){
     this.authService.login(this.email,this.password)
@@ -36,4 +41,5 @@ export class LoginComponent implements OnInit {
         });
       });
   }
+
 }
