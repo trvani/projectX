@@ -24,6 +24,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { SettingsService } from './services/settings.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SettingsService } from './services/settings.service';
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [UserService,AuthService,SettingsService],
   bootstrap: [AppComponent]

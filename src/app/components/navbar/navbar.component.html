@@ -25,7 +25,9 @@
               <a routerLink="/settings" class="nav-link">Settings</a>
           </li>
           <li *ngIf="isLoggedIn" class="nav-item">
-              <a href="#" (click)="onLogoutClick()" class="nav-link">Logout</a>
+              <a href="#" (click)="onLogoutClick()" class="btn btn-transparent btn-sm">
+                <span class="glyphicon glyphicon-log-out"></span> Logout
+              </a>
           </li>
         </ul>
       </div>
