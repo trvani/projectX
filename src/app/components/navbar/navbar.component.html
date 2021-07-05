@@ -18,16 +18,29 @@
           <li *ngIf="!isLoggedIn " class="nav-item">
             <a routerLink="/login" class="nav-link">Login</a>
           </li>
-          <li *ngIf="isLoggedIn" class="nav-item">
+       <!--    <li *ngIf="isLoggedIn" class="nav-item">
               <a href="#" class="nav-link">{{ loggedInUser }}</a>
-          </li>
-          <li *ngIf="isLoggedIn" class="nav-item">
+          </li> -->
+      <!--     <li *ngIf="isLoggedIn" class="nav-item">
               <a routerLink="/settings" class="nav-link">Settings</a>
-          </li>
+          </li> -->
           <li *ngIf="isLoggedIn" class="nav-item">
-              <a href="#" (click)="onLogoutClick()" class="btn btn-transparent btn-sm">
-                <span class="glyphicon glyphicon-log-out"></span> Logout
-              </a>
+            
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Action
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#" routerLink="/settings">Settings</a>
+                  <a class="dropdown-item" routerLink="/register"  href="#">Create New Account</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#" (click)="onLogoutClick()">Logout</a>
+                </div>
+              </div>  
+
+
+
           </li>
         </ul>
       </div>
